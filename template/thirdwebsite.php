@@ -19,7 +19,7 @@
     <main class="container">
         <h2>Contact us</h2>
         <div class="form-container">
-            <form action="http://www.randyconnolly.com/tests/process.php" name="contact-form">
+            <form method="post" name="contact-form" action="../php/process.php">
                 <!-- <div class="contact-input"> -->
                 <div class="name-input">
                     <div class="fname-field">
@@ -38,7 +38,7 @@
                 <div class="message-field">
                     <label id="message-label" for="message" class="input-name">Message</label>
                     <textarea id="message" type="text" required placeholder="Message" class="input input-text"
-                        name="message"></textarea>
+                        name="messagee"></textarea>
                 </div>
                 <input class="submit-button button" type="submit" value="Submit" />
                 <!-- </div>  -->
