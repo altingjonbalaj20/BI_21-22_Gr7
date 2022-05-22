@@ -1,8 +1,9 @@
 <?php
-    require_once('./conn.php');
-
+    require_once('database.php.php');
+    $db = new Database();
     $query = 'CREATE TABLE IF NOT EXISTS gallery (
         id integer primary key auto_increment,
+        title varchar(100),
         description varchar(255),
         imagename varchar(500),
         create_date date,
@@ -11,4 +12,5 @@
         category varchar(50)
     )';
 
-    execQuery($query, "Could not create table gallery", "Table gallery created successfully");
+    $db->execQuery($query, "Could not create table gallery");
+    $db->closeConnection();

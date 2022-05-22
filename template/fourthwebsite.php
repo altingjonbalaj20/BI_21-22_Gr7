@@ -14,15 +14,17 @@
 
 <body>
     <?php
-        include('../partials/_header.php')
+        require_once('../partials/_header.php')
     ?>
 
     <main class="container">
         <?php
-        if (isset($_POST['filter'])) {
-            require_once('../database/conn.php');
-            execQuery('select * from gallery', 'Error on fourthwebsite, on filter form');
-        }
+        // $db = new Database();
+        // if (isset($_POST['filter'])) {
+        //     require_once('../database/conn.php');
+        //     $db -> execQuery('select * from gallery', 'Error on fourthwebsite, on filter form');
+        // }
+        // $db -> closeConnection();
         ?>
         <div class="form-container">
             <form action="<?php $_PHP_SELF ?>" method="post" id="filter-form">
@@ -73,44 +75,10 @@
                 <input class="submit-button button" type="submit" value="Filter" id="filter" name="filter" />
             </form>
         </div>
-        <div class="photos-container">
-            <div class="photo-container">
-                <figure>
-                    <img src="../img/fourthwebsite/image.jpeg" alt="gallery image" srcset="" width="240px" height="240px" />
-                    <figcaption>Hello</figcaption>
-                </figure>
-            </div>
-            <div class="photo-container">
-                <figure>
-                    <img src="../img/fourthwebsite/image.jpeg" alt="gallery image" srcset="" width="240px" height="240px" />
-                    <figcaption>Hello</figcaption>
-                </figure>
-            </div>
-            <div class="photo-container">
-                <figure>
-                    <img src="../img/fourthwebsite/image.jpeg" alt="gallery image" srcset="" width="240px" height="240px" />
-                    <figcaption>Hello</figcaption>
-                </figure>
-            </div>
-            <div class="photo-container">
-                <figure>
-                    <img src="../img/fourthwebsite/image.jpeg" alt="gallery image" srcset="" width="240px" height="240px" />
-                    <figcaption>Hello</figcaption>
-                </figure>
-            </div>
-            <div class="photo-container">
-                <figure>
-                    <img src="../img/fourthwebsite/image.jpeg" alt="gallery image" srcset="" width="240px" height="240px" />
-                    <figcaption>Hello</figcaption>
-                </figure>
-            </div>
-            <div class="photo-container">
-                <figure>
-                    <img src="../img/fourthwebsite/image.jpeg" alt="gallery image" srcset="" width="240px" height="240px" />
-                    <figcaption>Hello</figcaption>
-                </figure>
-            </div>
-        </div>
+        <?php
+            require_once('../php/posts.php');
+            new Posts("select * from gallery");
+        ?>
     </main>
 
     <?php
