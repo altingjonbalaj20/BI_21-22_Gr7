@@ -24,7 +24,9 @@
         $author = $row['author'];
         $address = $row['address'];
         $category = $row['category'];
+
     }
+    printf("Title, description, imagename, author, address, category", $title, $description, $image, $author, $address, $category);
     ?>
     <main>
         <div class='left-container'>
