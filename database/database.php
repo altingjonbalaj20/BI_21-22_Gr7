@@ -1,5 +1,5 @@
 <?php
-class Database
+class Database 
 {
     private $user;
     private $host;
