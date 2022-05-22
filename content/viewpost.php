@@ -37,7 +37,7 @@
                 <label for="">ID:</label>
                 <label for=""><?php echo $id ?></label>
             </div>
-            <div class="field">
+            <div class="field">dfcccdcvccxcsdawdsawds
                 <label for="">Title:</label>
                 <label for=""><?php echo $title ?></label>
             </div>
