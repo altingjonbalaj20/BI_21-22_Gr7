@@ -1,0 +1,12 @@
+.left-container{
+    display: inline;
+    width: 40%;
+    background: blue;
+}
+
+.right-container {
+    display: inline;
+    left: 55%;
+    width: 40%;
+    background: black;
+}

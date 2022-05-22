@@ -19,7 +19,7 @@ class Database
     function execQuery($query, $error)
     {
         $retval = mysqli_query($this->link, $query);
-        if (!$retval) {
+        if (!$retval || $retval == null) {
             die($error . mysqli_connect_error());
         }
         return $retval;
