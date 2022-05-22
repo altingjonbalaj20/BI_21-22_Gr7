@@ -14,7 +14,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $u_lname=$_POST["lname"];
     $u_email=$_POST["email"];
     $u_message=$_POST["messagee"];
-    if (empty($u_name)){
+    if (empty($u_name) || strlen($u_name)==1){
 		die("Please enter your name");
 	}
     if (empty($u_lname)){
@@ -22,6 +22,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	}
 	if (empty($u_email) || !filter_var($u_email, FILTER_VALIDATE_EMAIL)){
 		die("Please enter valid email address");
+		
 	}
 		
 	if (empty($u_message)){
@@ -37,7 +38,14 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $statement->bind_param('ssss', $u_name, $u_lname, $u_email, $u_message); //bind values and execute insert query
 	
     if($statement->execute()){
-		print "Hello " . $u_name . "!, your message has been saved!";
+		$email=trim($u_email);
+		$username= explode("@", $email);
+		$init=substr($u_name, 0,1);
+		$initi=substr($u_lname, 0,1);
+		$arr=array('Hello',$init, $initi, 'with username ' , $username[0],'!','your','message','has','been','saved. ');
+		echo implode(" ", $arr);
+		echo str_replace('xxxx', $u_email, 'We will contact you on your email xxxx as soon as possible');
+	
 	}else{
 		print $mysqli->error; //show mysql error if any
 	}
