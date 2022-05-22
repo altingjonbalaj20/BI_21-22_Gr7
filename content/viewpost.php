@@ -7,11 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>View Post : </title>
     <link rel="stylesheet" href="../styles/reset.css" />
-
-    <link rel="stylesheet" href="./css/viewpost.css">
+    <link rel="stylesheet" href="../styles/default.css">
+    <link rel="stylesheet" href="css/viewpost.css">
 </head>
 
 <body>
+    <?php
+    include("../partials/_header.php");
+    ?>
     <?php
     require_once('../database/database.php');
     $db = new Database();
@@ -24,39 +27,37 @@
         $author = $row['author'];
         $address = $row['address'];
         $category = $row['category'];
-
     }
     printf("Title, description, imagename, author, address, category", $title, $description, $image, $author, $address, $category);
     ?>
-    <main>
-        <div class='left-container'>
+    <main class="container">
+        <div class='photo-container'>
             <figure>
-                TESTING 
+                <img src='../img/fourthwebsite/image.jpeg' alt='gallery image' srcset='' width='240px' height='240px' />
             </figure>
         </div>
-        <div class="right-container">
+        <div class="data-container">
             <div class="field">
-                <label for="">ID:</label>
-                <label for=""><?php echo $id ?></label>
-            </div>
-            <div class="field">dfcccdcvccxcsdawdsawds
-                <label for="">Title:</label>
-                <label for=""><?php echo $title ?></label>
+                <label for="">ID: <?php echo $id ?></label>
             </div>
             <div class="field">
-                <label for="">Author:</label>
-                <label for=""><?php echo $author ?></label>
+                <label for="">Title: <?php echo $title ?></label>
             </div>
             <div class="field">
-                <label for="">Address:</label>
-                <label for=""><?php echo $address ?></label>
+                <label for="">Author: <?php echo $author ?></label>
             </div>
             <div class="field">
-                <label for="">Description:</label>
-                <label for=""><?php echo $description ?></label>
+                <label for="">Address: <?php echo $address ?></label>
+            </div>
+            <div class="field">
+                <label for="">Description: <?php echo $description ?></label>
             </div>
         </div>
     </main>
+
+    <?php
+    include("../partials/_footer.php.php");
+    ?>
 </body>
 
 </html>
