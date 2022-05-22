@@ -21,12 +21,7 @@
         <?php
         if (isset($_POST['filter'])) {
             require_once('../database/conn.php');
-
-            alert("Hello World");
-
-            function alert($msg) {
-                echo "<script type='text/javascript'>alert('$msg');</script>";
-            }
+            execQuery('select * from gallery', 'Error on fourthwebsite, on filter form');
         }
         ?>
         <div class="form-container">

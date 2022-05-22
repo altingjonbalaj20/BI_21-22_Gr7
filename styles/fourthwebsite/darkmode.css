@@ -1,3 +1,7 @@
+body{
+    background-color: black;
+}
+
 .container .form-container {
     background-color: #5f5f5f;
 }
@@ -5,6 +9,10 @@
 .filter-container .filter-option .input {
     background-color: #5f5f5f;
     border: 1px solid white;
+}
+
+.filter-container .filter-option .input::placeholder {
+    color: white;
 }
 
 .filter-container .filter-option .input:focus {

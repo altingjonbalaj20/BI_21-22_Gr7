@@ -1,5 +1,5 @@
 <?php
-    include('./config.php');
+    require_once('config.php');
     $dbhost = DBHOST;
     $dbuser = DBUSER;
     $dbpass = DBPWD;
@@ -8,5 +8,16 @@
 
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
-     }
-     echo "Connected successfully";
+    }
+
+    function execQuery($query, $error, $success=""){
+        global $conn;
+        $retval = mysqli_query( $conn, $query );
+        if(! $retval )
+        {
+        die($error . mysqli_connect_error());
+        }
+        if(strcmp($success, "")){
+            echo "<script>alert($success)</script>";
+        }
+    }
