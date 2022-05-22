@@ -13,4 +13,3 @@
     )';
 
     $db->execQuery($query, "Could not create table gallery");
-    $db->closeConnection();

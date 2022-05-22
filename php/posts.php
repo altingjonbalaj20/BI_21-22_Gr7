@@ -1,7 +1,6 @@
 <?php
 class Posts
 {
-    private $db;
     public function __construct($postQuery)
     {
         include('post.php');
@@ -13,6 +12,5 @@ class Posts
             new Post($row);
         }
         echo "</div>";
-        $db->closeConnection();
     }
 }

@@ -25,6 +25,11 @@ class Database
         return $retval;
     }
 
+    function __destruct()
+    {
+        $this -> closeConnection();
+    }
+
     function closeConnection(){
         mysqli_close($this->link);
     }
