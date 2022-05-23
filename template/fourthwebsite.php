@@ -44,12 +44,6 @@
                         <tr>
                             <td>
                                 <div class="filter-option">
-                                    <label for="">Data: </label>
-                                    <input type="date" name="data" id="" />
-                                </div>
-                            </td>
-                            <td>
-                                <div class="filter-option">
                                     <label for="categories">Zgjedh kategorine: </label>
                                     <input list="categories" id="category" name="category">
                                     <datalist id="categories">
@@ -57,7 +51,7 @@
                                         <option value="animals">Kafshe</option>
                                         <option value="extremeSports">Sporte Ekstreme</option>
                                         <option value="travel">Udhetime</option>
-                                        <option value=""></option>
+                                        <option value="test">Test</option>
                                     </datalist>
                                 </div>
                             </td>
@@ -93,7 +87,14 @@
                 $query = $query . "address like '%$address%' ";
                 $and = true;
             }
-            echo " <h1 style='color:white'>$query</h1>";
+            if(strcmp($_POST['category'], "") != 0){
+                $category = $_POST['category'];
+                if($and){
+                    $query = $query . " and ";
+                }
+                $query = $query . "category like '%$category%' ";
+                $and = true;
+            }
             new Posts($query);
         } else {
             new Posts("select * from gallery");
