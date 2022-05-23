@@ -1,13 +1,9 @@
 <header>
     <div class="header-elements container">
       <div class="elements">
-        <p><a href="#">Libero</a></p>
-        <span>|</span>
-        <p><a href="#">Maecenas</a></p>
-        <span>|</span>
-        <p><a href="#">Mauris</a></p>
-        <span>|</span>
-        <p><a href="#">Suspendise</a></p>
+      <p><a href="/BI_21-22_Gr7/template/login.php">Log in</a></p> 
+      <p><span></span>|<span></span></p>
+      <p><a href="/BI_21-22_Gr7/template/logout.php">Log out</a></p>
       </div>
     </div>
     <nav>
