@@ -27,15 +27,15 @@
                 <div class="filter-container">
                     <div class="filter-option">
                         <label id="author-label" for="author" class="filter-name">Autori</label>
-                        <input id="author" type="text" onblur="onBlur('author','author-label')" onfocus="onFocus('author-label')" id="author" placeholder="Author" class="input input-text" name="author" />
+                        <input id="author" type="text" onblur="onBlur('author','author-label')" onfocus="onFocus('author-label')" id="author" placeholder="Author" class="input input-text" name="author" value="<?php if(isset($_POST['author'])){echo $_POST['author'];} ?>"/>
                     </div>
                     <div class="filter-option">
                         <label id="address-label" for="address" class="filter-name">Adresa</label>
-                        <input id="address" onblur="onBlur('address','address-label')" onfocus="onFocus('address-label')" type="text" placeholder="Address" class="input input-text" name="address" />
+                        <input id="address" value="<?php if(isset($_POST['address'])){echo $_POST['address'];} ?>" onblur="onBlur('address','address-label')" onfocus="onFocus('address-label')" type="text" placeholder="Address" class="input input-text" name="address" />
                     </div>
                     <div class="filter-option">
                         <label id="name-label" for="name" class="filter-name">Titulli</label>
-                        <input id="title" type="text" maxlength="40" onblur="onBlur('name','name-label')" onfocus="onFocus('name-label')" placeholder="Title" class="input input-text" name="title" />
+                        <input id="title" value="<?php if(isset($_POST['title'])){echo $_POST['title'];} ?>" type="text" maxlength="40" onblur="onBlur('name','name-label')" onfocus="onFocus('name-label')" placeholder="Title" class="input input-text" name="title" />
                     </div>
                 </div>
                 <details class="additional-filters">
@@ -45,7 +45,7 @@
                             <td>
                                 <div class="filter-option">
                                     <label for="categories">Zgjedh kategorine: </label>
-                                    <input list="categories" id="category" name="category">
+                                    <input value="<?php if(isset($_POST['category'])){echo $_POST['category'];} ?>" list="categories" id="category" name="category">
                                     <datalist id="categories">
                                         <option value="nature">Natyre</option>
                                         <option value="animals">Kafshe</option>

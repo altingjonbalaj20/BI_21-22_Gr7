@@ -61,28 +61,27 @@
           <h3 class="container-title">Keep Up to Date</h3>
           <div class="social-link">
             <a href="https://www.facebook.com" target="_blank"><img
-                src="./img/social-logos/facebook-logo-fill-svgrepo-com.svg" alt="" srcset="" /></a>
+                src="/BI_21-22_Gr7/img/social-logos/facebook-logo-fill-svgrepo-com.svg" alt="" srcset="" /></a>
             <p>Facebook</p>
           </div>
           <hr />
           <div class="social-link">
             <a href="https://www.twitter.com" target="_blank"><img
-                src="./img/social-logos/facebook-logo-fill-svgrepo-com.svg" alt="" srcset="" /></a>
+                src="/BI_21-22_Gr7/img/social-logos/facebook-logo-fill-svgrepo-com.svg" alt="" srcset="" /></a>
             <p>Twitter</p>
           </div>
           <hr />
           <div class="social-link">
             <a href="https://www.instagram.com" target="_blank"><img
-                src="./img/social-logos/facebook-logo-fill-svgrepo-com.svg" alt="" srcset="" /></a>
+                src="/BI_21-22_Gr7/img/social-logos/facebook-logo-fill-svgrepo-com.svg" alt="" srcset="" /></a>
             <p>Instagram</p>
           </div>
           <hr />
           <div class="social-link">
-            <a href="https://www.flickr.com" target="_blank"><img src="./img/fourthwebsite/image.jpeg" alt=""
+            <a href="https://www.flickr.com" target="_blank"><img src="/BI_21-22_Gr7/img/fourthwebsite/image.jpeg" alt=""
                 srcset="" /></a>
             <p>Flickr</p>
           </div>
-          <hr />
         </div>
       </div>
     </section>
