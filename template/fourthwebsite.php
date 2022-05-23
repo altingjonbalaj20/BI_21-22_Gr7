@@ -14,18 +14,10 @@
 
 <body>
     <?php
-        require_once('../partials/_header.php')
+    require_once('../partials/_header.php')
     ?>
 
     <main class="container">
-        <?php
-        // $db = new Database();
-        // if (isset($_POST['filter'])) {
-        //     require_once('../database/conn.php');
-        //     $db -> execQuery('select * from gallery', 'Error on fourthwebsite, on filter form');
-        // }
-        // $db -> closeConnection();
-        ?>
         <div class="form-container">
             <form action="<?php $_PHP_SELF ?>" method="post" id="filter-form">
                 <script>
@@ -42,8 +34,8 @@
                         <input id="address" onblur="onBlur('address','address-label')" onfocus="onFocus('address-label')" type="text" placeholder="Address" class="input input-text" name="address" />
                     </div>
                     <div class="filter-option">
-                        <label id="name-label" for="name" class="filter-name">Emri</label>
-                        <input id="name" type="text" maxlength="40" onblur="onBlur('name','name-label')" onfocus="onFocus('name-label')" placeholder="Name" class="input input-text" name="name" />
+                        <label id="name-label" for="name" class="filter-name">Titulli</label>
+                        <input id="title" type="text" maxlength="40" onblur="onBlur('name','name-label')" onfocus="onFocus('name-label')" placeholder="Title" class="input input-text" name="title" />
                     </div>
                 </div>
                 <details class="additional-filters">
@@ -76,8 +68,37 @@
             </form>
         </div>
         <?php
-            require_once('../php/posts.php');
+        require_once('../php/posts.php');
+        if (isset($_POST['filter'])) {
+            $query = "select * from gallery where ";
+            $and = false;
+            if(strcmp($_POST['author'], "") != 0){
+                $author = $_POST['author'];
+                $query = $query . "author like '%$author%' ";
+                $and = true;
+            }
+            if(strcmp($_POST['title'], "") != 0){
+                $title = $_POST['title'];
+                if($and){
+                    $query = $query . "and ";
+                }
+                $query = $query . " title like '%$title%' ";
+                $and = true;
+            }
+            if(strcmp($_POST['address'], "") != 0){
+                $address = $_POST['address'];
+                if($and){
+                    $query = $query . "and ";
+                }
+                $query = $query . "address like '%$address%' ";
+                $and = true;
+            }
+            echo " <h1 style='color:white'>$query</h1>";
+            new Posts($query);
+        } else {
             new Posts("select * from gallery");
+        }
+
         ?>
     </main>
 
