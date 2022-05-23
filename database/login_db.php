@@ -7,10 +7,8 @@
         {
             die('Could not connect: ' . mysqli_connect_error());
         }
-    
-        $sql = 'DROP Database Users';
-        $retval = mysqli_query( $conn, $sql );
-        $sql = 'CREATE Database Users';
+
+        $sql = 'CREATE Database if not exists Users';
         $retval = mysqli_query( $conn, $sql );
         if(! $retval )
         {
@@ -18,8 +16,8 @@
         }
         
         $db='Users';
-	    $conn = mysqli_connect($dbhost, $dbuser, $dbpass,$db);
-        $sql = 'CREATE TABLE users_data (
+	    $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $db);
+        $sql = 'CREATE TABLE if not exists users_data (
             id integer, 
             user_name varchar(100) NOT NULL,
             password varchar(20) NOT NULL )';
