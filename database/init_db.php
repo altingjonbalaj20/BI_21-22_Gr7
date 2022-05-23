@@ -17,6 +17,7 @@
         address varchar(50),
         category varchar(50)
     )';
+  
 
     $db->execQuery($query, "Could not create table gallery");
 
