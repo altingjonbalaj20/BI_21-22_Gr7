@@ -34,7 +34,7 @@
         <div class="container">
             <div class='photo-container'>
                 <figure>
-                    <img src='../img/fourthwebsite/image.jpeg' alt='gallery image' srcset='' width='240px' height='240px' />
+                    <img src='../img/fourthwebsite/<?php echo $image ?>' alt='gallery image' srcset='' width='240px' height='240px' />
                 </figure>
             </div>
             <div class="data-container">

@@ -5,4 +5,5 @@
    
    echo 'You have cleaned session';
    header('Refresh: 5; URL = logout.php');
+   exit();
 ?>
