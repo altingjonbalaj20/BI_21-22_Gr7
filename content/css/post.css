@@ -11,7 +11,7 @@
 }
 
 .photo-container {
-    display: inline;
+    display: block;
     background-color: yellowgreen;
     display: inline-flex;
     border-radius: 10px;
@@ -20,15 +20,34 @@
  }
  
  .photo-container figure {
-    padding: 10px 10px 10px 10px;
+    padding: 10px;
  }
 
  .data-container .field{
-    display: block;
     margin: auto;
     background: white;
     padding: 10px;
     justify-content: center;
     border-radius: 10px;
- }
+}
+
+.actions{
+    margin-top: 20px;
+}
+
+.actions input{
+    height: 50px;
+    width: 20%;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.actions input:active{
+    background: yellowgreen;
+}
+
+.field input, .field textarea{
+    padding: 10px;
+    border-radius: 10px;
+}
 

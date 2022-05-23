@@ -5,10 +5,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>View Post : </title>
+    <title>View Post</title>
     <link rel="stylesheet" href="../styles/reset.css" />
     <link rel="stylesheet" href="../styles/default.css">
-    <link rel="stylesheet" href="css/viewpost.css">
+    <link rel="stylesheet" href="css/post.css">
 </head>
 
 <body>
@@ -30,29 +30,36 @@
     }
     printf("Title, description, imagename, author, address, category", $title, $description, $image, $author, $address, $category);
     ?>
-    <main class="container">
-        <div class='photo-container'>
-            <figure>
-                <img src='../img/fourthwebsite/image.jpeg' alt='gallery image' srcset='' width='240px' height='240px' />
-            </figure>
+    <main>
+        <div class="container">
+            <div class='photo-container'>
+                <figure>
+                    <img src='../img/fourthwebsite/image.jpeg' alt='gallery image' srcset='' width='240px' height='240px' />
+                </figure>
+            </div>
+            <div class="data-container">
+                <div class="field">
+                    <label for="">ID: <?php echo $id ?></label>
+                </div>
+                <div class="field">
+                    <label for="">Title: <?php echo $title ?></label>
+                </div>
+                <div class="field">
+                    <label for="">Author: <?php echo $author ?></label>
+                </div>
+                <div class="field">
+                    <label for="">Address: <?php echo $address ?></label>
+                </div>
+                <div class="field">
+                    <label for="">Description: <?php echo $description ?></label>
+                </div>
+            </div>
         </div>
-        <div class="data-container">
-            <div class="field">
-                <label for="">ID: <?php echo $id ?></label>
-            </div>
-            <div class="field">
-                <label for="">Title: <?php echo $title ?></label>
-            </div>
-            <div class="field">
-                <label for="">Author: <?php echo $author ?></label>
-            </div>
-            <div class="field">
-                <label for="">Address: <?php echo $address ?></label>
-            </div>
-            <div class="field">
-                <label for="">Description: <?php echo $description ?></label>
-            </div>
-        </div>
+        <form class="actions container" action="" method="POST">
+            <input type="hidden" name="id" value="<?php echo $id ?>">
+            <input type="submit" value="Edit Post" formaction="editpost.php" />
+            <input type="submit" value="Delete Post" formaction="actions/deletepost.php" />
+        </form>
     </main>
 
     <?php
