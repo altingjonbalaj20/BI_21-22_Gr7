@@ -33,4 +33,28 @@ class Database
     function closeConnection(){
         mysqli_close($this->link);
     }
+
+    function getHost(){
+        return $this -> host;
+    }
+
+    function getUser(){
+        return $this -> user;
+    }
+
+    function getDB(){
+        return $this -> db;
+    }
+
+    function setHost($host){
+        $this -> host = $host;
+    }
+
+    function setUser($user){
+        $this -> user = $user;
+    }
+
+    function setDB($db){
+        $this -> db = $db;
+    }
 }

@@ -121,6 +121,13 @@ details {
    -o-transition: all ease-in-out 0.3s;
 }
 
+#button {
+   width: 20%;
+   display: flex;
+   justify-content: center;
+   margin: auto;
+}
+
 .photos-container {
    display: inline-flex;
    gap: 40px;

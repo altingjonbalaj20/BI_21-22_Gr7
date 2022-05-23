@@ -61,6 +61,7 @@
                 <input class="submit-button button" type="submit" value="Filter" id="filter" name="filter" />
             </form>
         </div>
+        <button id="button" onclick="window.location.replace('../content/createpost.php');">Create Post</button>
         <?php
         require_once('../php/posts.php');
         if (isset($_POST['filter'])) {
