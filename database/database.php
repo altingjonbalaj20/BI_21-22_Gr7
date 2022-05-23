@@ -9,7 +9,7 @@ class Database extends mysqli
 
     public function __construct($db_bi_connect=true)
     {
-        include('config.php');
+        require_once('config.php');
         $this->user = DBUSER;
         $this->host = DBHOST;
         $this->pass = DBPWD;

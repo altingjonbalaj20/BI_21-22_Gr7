@@ -17,6 +17,12 @@
     require_once('../partials/_header.php')
     ?>
 
+    <?php
+    include('../database/database.php');
+    $db = new Database();
+    $categories = $db -> execQuery('select distinct category from gallery', 'Query to get categories not executed');
+    ?>
+
     <main class="container">
         <div class="form-container">
             <form action="<?php $_PHP_SELF ?>" method="post" id="filter-form">
@@ -47,11 +53,17 @@
                                     <label for="categories">Zgjedh kategorine: </label>
                                     <input value="<?php if(isset($_POST['category'])){echo $_POST['category'];} ?>" list="categories" id="category" name="category">
                                     <datalist id="categories">
-                                        <option value="nature">Natyre</option>
-                                        <option value="animals">Kafshe</option>
-                                        <option value="extremeSports">Sporte Ekstreme</option>
-                                        <option value="travel">Udhetime</option>
-                                        <option value="test">Test</option>
+                                        <?php
+                                            $sort_cat = array();
+                                            while($row = mysqli_fetch_array($categories)){
+                                                $name = $row['category'];
+                                                array_push($sort_cat, $name);
+                                            }
+                                            sort($sort_cat);
+                                            foreach ($sort_cat as $category){
+                                                echo "<option value='$category'>$category</option>";
+                                            }
+                                        ?>
                                     </datalist>
                                 </div>
                             </td>
@@ -64,6 +76,7 @@
         <button class="button" onclick="window.location.replace('../content/createpost.php');">Create Post</button>
         <?php
         require_once('../php/posts.php');
+        include('../content/actions/savecookie.php');
         if (isset($_POST['filter'])) {
             $query = "select * from gallery where ";
             $and = false;
