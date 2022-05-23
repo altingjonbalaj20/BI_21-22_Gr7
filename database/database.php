@@ -1,5 +1,5 @@
 <?php
-class Database 
+class Database extends mysqli
 {
     private $user;
     private $host;
@@ -7,14 +7,19 @@ class Database
     private $db;
     private $link;
 
-    public function __construct()
+    public function __construct($db_bi_connect=true)
     {
         include('config.php');
         $this->user = DBUSER;
         $this->host = DBHOST;
         $this->pass = DBPWD;
         $this->db = DBNAME;
-        $this->link = mysqli_connect($this->host, $this->user, $this->pass, $this->db);
+        if($db_bi_connect){
+            $this->link = mysqli_connect($this->host, $this->user, $this->pass, $this->db);
+        }
+        else{
+            $this->link = mysqli_connect($this->host, $this->user, $this->pass);
+        }
     }
     function execQuery($query, $error)
     {
@@ -48,13 +53,25 @@ class Database
 
     function setHost($host){
         $this -> host = $host;
+        $this -> reconnect();
     }
 
     function setUser($user){
         $this -> user = $user;
+        $this -> reconnect();
     }
 
     function setDB($db){
         $this -> db = $db;
+        $this -> reconnect();
+    }
+
+    function setPwd($pwd){
+        $this -> pass = $pwd;
+        $this -> reconnect();
+    }
+
+    function reconnect(){
+        $this->link = mysqli_connect($this->host, $this->user, $this->pass, $this->db);
     }
 }
