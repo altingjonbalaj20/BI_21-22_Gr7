@@ -14,11 +14,6 @@ if(isset($_POST["Create"])) {
   }
 }
 
-// Check if file already exists
-if (file_exists($target_file)) {
-  $uploadOk = 0;
-}
-
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
 && $imageFileType != "gif" ) {
@@ -27,7 +22,7 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
 
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-    die("Post creation error, check your file or SQL Connection");
+    die("Image saving problem, on image save.");
 // if everything is ok, try to upload file
 } else {
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
