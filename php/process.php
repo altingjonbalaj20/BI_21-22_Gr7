@@ -17,18 +17,34 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     if (empty($u_name) || strlen($u_name)==1){
 		die("Please enter your name");
 	}
+	if(preg_match("/^([a-zA-Z' ]+)$/",$u_name)){
+
+	}else{
+		die("Please enter your first name correctly");
+	}
     if (empty($u_lname)){
+		die("Please enter your last name");
+	}
+	if(preg_match("/^([a-zA-Z' ]+)$/",$u_lname)){
+
+	}
+	else{
 		die("Please enter your last name");
 	}
 	if (empty($u_email) || !filter_var($u_email, FILTER_VALIDATE_EMAIL)){
 		die("Please enter valid email address");
 		
 	}
-		
+
+	$pattern ='/.con/i';
+	$u_email= preg_replace($pattern, '.com',$u_email);
+
 	if (empty($u_message)){
 		die("Please enter message");
-	}	
-
+	}
+	
+	$words=preg_split("/[\s]+/", $u_message);
+	
 
     $mysqli = new mysqli($dbhost, $dbuser, $dbpass, $db);
     if ($mysqli->connect_error) {
@@ -42,9 +58,13 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 		$username= explode("@", $email);
 		$init=substr($u_name, 0,1);
 		$initi=substr($u_lname, 0,1);
-		$arr=array('Hello',$init, $initi, 'with username ' , $username[0],'!','your','message','has','been','saved. ');
+		$arr=array('Hello',$init,'.',$initi, '! <br> Here is your username: ' , $username[0],"<br>",'Your','message','has','been','saved. ');
 		echo implode(" ", $arr);
-		echo str_replace('xxxx', $u_email, 'We will contact you on your email xxxx as soon as possible');
+		echo (' <br> Your message said: <br>');
+		foreach($words as $words){
+		    echo $words . " ";
+		}
+		echo str_replace('xxxx', $u_email, ' <br> We will contact you on your email xxxx as soon as possible');
 	
 	}else{
 		print $mysqli->error; //show mysql error if any
