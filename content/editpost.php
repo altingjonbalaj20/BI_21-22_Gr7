@@ -63,12 +63,12 @@
         </div>
         <div class="actions container">
             <input type="submit" form="editPost" value="Save" formaction="actions/updatepost.php" />
-            <input type="submit" value="Cancel" onclick="window.location.replace('../template/fourthwebsite.php')" />
+            <input type="button" value="Cancel" onclick="window.location.replace('../template/fourthwebsite.php')" />
         </div>
     </main>
 
     <?php
-    include("../partials/_footer.php.php");
+    include("../partials/_footer.php");
     ?>
 </body>
 

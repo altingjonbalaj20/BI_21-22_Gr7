@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Edit Post</title>
+    <title>Create Post</title>
     <link rel="stylesheet" href="../styles/reset.css" />
     <link rel="stylesheet" href="../styles/default.css">
     <link rel="stylesheet" href="css/post.css">
@@ -18,17 +18,6 @@
     <?php
     require_once('../database/database.php');
     $db = new Database();
-    $id = $_POST['id'];
-    $post = $db->execQuery("select * from gallery where id = '$id' limit 1", "Post with id $id does not exist in database.");
-    while ($row = mysqli_fetch_array($post)) {
-        $title = $row['title'];
-        $description = $row['description'];
-        $image = $row['imagename'];
-        $author = $row['author'];
-        $address = $row['address'];
-        $category = $row['category'];
-    }
-    printf("Title, description, imagename, author, address, category", $title, $description, $image, $author, $address, $category);
     ?>
     <main>
         <div class="container">
@@ -37,38 +26,41 @@
                     <img src='../img/fourthwebsite/image.jpeg' alt='gallery image' srcset='' width='240px' height='240px' />
                 </figure>
             </div>
-            <form id="editPost" class="data-container" method="POST">
-                <div class="field">
-                    <label for="">ID: </label>
-                    <label for=""><?php echo $id ?></label>
-                    <input type="hidden" name="id" value="<?php echo $id ?>">
-                </div>
+            <form id="createPost" class="data-container" method="POST" enctype="multipart/form-data">
                 <div class="field">
                     <label for="">Title: </label>
-                    <input type="text" name="title" value="<?php echo $title ?>">
+                    <input type="text" name="title" value="">
                 </div>
                 <div class="field">
                     <label for="">Author: </label>
-                    <input type="text" name="author" value="<?php echo $author ?>">
+                    <input type="text" name="author" value="">
                 </div>
                 <div class="field">
                     <label for="">Address: </label>
-                    <input type="text" name="address" value="<?php echo $address ?>">
+                    <input type="text" name="address" value="">
                 </div>
                 <div class="field">
                     <label for="">Description: </label>
-                    <textarea name="description" id="" cols="30" rows="10"><?php echo $description ?></textarea>
+                    <textarea name="description" id="" cols="30" rows="10"></textarea>
+                </div>
+                <div class="field">
+                    <label for="">Category: </label>
+                    <input type="text" name="category" value="">
+                </div>
+                <div class="field">
+                    <label for="">Upload Image: </label>
+                    <input type="file" name="fileToUpload" id="fileToUpload">
                 </div>
             </div>
         </div>
         <div class="actions container">
-            <input type="submit" form="editPost" value="Save" formaction="actions/updatepost.php" />
-            <input type="submit" value="Cancel" onclick="window.location.replace('../template/fourthwebsite.php')" />
+            <input type="submit" form="createPost" value="Create" formaction="actions/insertpost.php" />
+            <input type="button" value="Cancel" onclick="window.location.replace('../template/fourthwebsite.php')" nosubmit/>
         </div>
     </main>
 
     <?php
-    include("../partials/_footer.php.php");
+    include("../partials/_footer.php");
     ?>
 </body>
 
