@@ -16,29 +16,28 @@
     <?php
     require_once('../partials/_header.php');
     $title = "";
-    if (isset($_COOKIE['filter[title]'])) {
-        $title = $_COOKIE['filter[title]'];
+    if (isset($_COOKIE['filter']['title'])) {
+        $title = $_COOKIE['filter']['title'];
     }
     $author = "";
-    if (isset($_COOKIE['filter[author]'])) {
-        $author = $_COOKIE['filter[author]'];
-        echo $author;
+    if (isset($_COOKIE['filter']['author'])) {
+        $author = $_COOKIE['filter']['author'];
     }
     $address = "";
-    if (isset($_COOKIE['filter[address]'])) {
-        $address = $_COOKIE['filter[address]'];
+    if (isset($_COOKIE['filter']['address'])) {
+        $address = $_COOKIE['filter']['address'];
     }
     $category = "";
-    if (isset($_COOKIE['filter[category]'])) {
-        $category = $_COOKIE['filter[category]'];
+    if (isset($_COOKIE['filter']['category'])) {
+        $category = $_COOKIE['filter']['category'];
     }
     if (isset($_POST['filter'])) {
         $author = $_POST['author'];
         $title = $_POST['title'];
         $address = $_POST['address'];
         $category = $_POST['category'];
-        setcookie("filter[author]", $author);
-        setcookie("filter[title]", $title, time() + 3600);
+        setcookie("filter[author]", $author, time() + 3600);
+        setcookie('filter[title]', $title, time() + 3600);
         setcookie("filter[address]", $address, time() + 3600);
         setcookie("filter[category]", $category, time() + 3600);
     }
@@ -59,20 +58,16 @@
                 </script>
                 <div class="filter-container">
                     <div class="filter-option">
-                        <label id="author-label" for="author" class="filter-name" value="<?php echo $author ?>">Autori</label>
-                        <input id="author" type="text" onblur="onBlur('author','author-label')" onfocus="onFocus('author-label')" id="author" placeholder="Author" class="input input-text" name="author" value="<?php if (isset($_POST['author'])) {
-                                                                                                                                                                                                                        echo $_POST['author'];
-                                                                                                                                                                                                                    } ?>" />
+                        <label id="author-label" for="author" class="filter-name">Autori</label>
+                        <input value="<?php echo $author ?>" type="text" onblur="onBlur('author','author-label')" onfocus="onFocus('author-label')" id="author" placeholder="Author" class="input input-text" name="author" />
                     </div>
                     <div class="filter-option">
                         <label id="address-label" for="address" class="filter-name">Adresa</label>
                         <input id="address" value="<?php echo $address ?>" onblur="onBlur('address','address-label')" onfocus="onFocus('address-label')" type="text" placeholder="Address" class="input input-text" name="address" />
                     </div>
                     <div class="filter-option">
-                        <label id="name-label" value="<?php echo $title ?>" for="name" class="filter-name">Titulli</label>
-                        <input id="title" value="<?php if (isset($_POST['title'])) {
-                                                        echo $_POST['title'];
-                                                    } ?>" type="text" maxlength="40" onblur="onBlur('name','name-label')" onfocus="onFocus('name-label')" placeholder="Title" class="input input-text" name="title" />
+                        <label id="name-label" for="name" class="filter-name">Titulli</label>
+                        <input id="title" value="<?php echo $title ?>" type="text" maxlength="40" onblur="onBlur('name','name-label')" onfocus="onFocus('name-label')" placeholder="Title" class="input input-text" name="title" />
                     </div>
                 </div>
                 <details class="additional-filters">
