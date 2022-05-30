@@ -1,22 +1,8 @@
 <header>
     <div class="header-elements container">
       <div class="elements">
-      <?php 
-      session_start();
-  
-      if (isset($_SESSION["loggedin"])) {
-        echo '<p><a href="/BI_21-22_Gr7/template/logout.php">LOGOUT</a></p>';
-      
-      } 
-      else {
-        echo '<p><a href="/BI_21-22_Gr7/template/login.php">Log in</a></p>    
-        <p><span></span>|<span></span></p>
-        <p><a href="/BI_21-22_Gr7/template/register.php">Register</a></p> ';
-      };
-     ?>
-    
-   
-    
+      <p><a href="/BI_21-22_Gr7/template/register.php">Logout</a></p> 
+     
       </div>
     </div>
     <nav>
